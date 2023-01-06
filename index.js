@@ -1,12 +1,12 @@
-function greet(name) {
-  const greetPromise = new Promise(function (revolve, reject) {
-    resolve(`Hello ${name}`);
-  });
-  return greetPromise;
+const URL = "https://api.quotable.io/random";
+
+async function getData(URL) {
+  try {
+    const response = await fetch(URL);
+    const data = await response.json();
+    document.getElementById("api-response").textContent = data.content;
+  } catch (error) {
+    console.log(error);
+  }
 }
-
-const suzie = greet("suzie");
-
-suzie.then((hello) => {
-  console.log(hello);
-});
+getData(URL);
