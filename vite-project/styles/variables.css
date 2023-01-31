@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&display=swap%22%22");
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body{
+    background-color: var(--oxford);
+}
+
+:root {
+    --ivory: #ffe7d0;
+    --grey: #aaaaaa;
+    --oxford: #18396b;
+    --rich: #0c1821;
+    --black: #000000;
+    --jet: #353238;
+    --red: #92140c;
+    --copper: #be7c4d;
+    --cedar: #be5a38;
+    --silver: #c1b4ae;
+  
+    --primary: var(--ivory);
+    --secondary: var(--grey);
+  
+    --h1: 7.594rem;
+    --h2: 5.063rem;
+    --h3: 3.875rem;
+    --h4: 2.65rem;
+    --h5: 1.5rem;
+  }
+  
