@@ -85,7 +85,7 @@
     }
     
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 900px) and (min-width: 480px){
     .container {
         padding: 5rem 5rem;
         width: 90vw;
