@@ -39,31 +39,38 @@ async function search(teams) {
   try {
     let inp = document.getElementById("inp").value;
     console.log(inp);
-    teams.preventDefault();
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
-    const team = data.data.filter((e) => e.full_name.includes(inp));
-    if (inp.length === 0 || team.length === 0) {
+    let teams = data.data.filter(
+      (e) =>
+        e.full_name.includes(inp) ||
+        e.division.includes(inp) ||
+        e.conference.includes(inp)
+    );
+    // teams.preventDefault();
+    if (inp.length === 0 || teams.length === 0) {
       throw new Error(
         "Invalid Input. Try capitalizing the first letter. ex:Celtics"
       );
       return;
     }
     console.log("team");
-    console.log(team);
+    // console.log(teams);
     result.innerText = "";
-    result.insertAdjacentHTML(
-      "afterbegin",
-      `<div class="card">
-      <img class="card-pic" src="${dict[team[0].abbreviation]}">
+    teams.forEach((team) =>
+      result.insertAdjacentHTML(
+        "afterbegin",
+        `<div class="card">
+      <img class="card-pic" src="${dict[team.abbreviation]}">
       <div class="card-text">
-        <h4 class="card-title">${team[0].full_name}</h4>
-        <h4 class="card-title">City: ${team[0].city}</h4>
-        <h4 class="card-title">Division: ${team[0].division}</h4>
-        <h4 class="card-title">Conference: ${team[0].conference}</h4>
+        <h4 class="card-title">${team.full_name}</h4>
+        <h4 class="card-title">City: ${team.city}</h4>
+        <h4 class="card-title">Division: ${team.division}</h4>
+        <h4 class="card-title">Conference: ${team.conference}</h4>
       </div>
     </div>`
+      )
     );
   } catch (error) {
     alert(error);
